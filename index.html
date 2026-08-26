@@ -99,7 +99,7 @@ body {
 header {
 
   background:
-    #3f2b20;
+   #8b5e3c;
 
   color:
     white;
@@ -974,6 +974,22 @@ input:focus {
 ========================================================= */
 
 @media (max-width:560px) {
+
+  /* Titre du quiz plus grand sur téléphone */
+  header h1 {
+    font-size: 34px;
+  }
+
+  /* Barre sous le titre du quiz */
+  header h1::after {
+    content: "";
+    display: block;
+    width: 88%;
+    height: 6px;
+    margin: 12px auto 0;
+    border-radius: 20px;
+    background: #c59b5f;
+  }
 
   body {
 
