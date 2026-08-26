@@ -1,0 +1,2609 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+>
+
+<title>Quiz : الحُرُوف — Jeu d'apprentissage</title>
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+
+  margin: 0;
+
+  padding: 0;
+
+  width: 100%;
+
+  min-height: 100%;
+
+}
+
+
+body {
+
+  font-family:
+    Arial,
+    "Noto Sans",
+    sans-serif;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f7f2e8,
+      #eadbc8
+    );
+
+  color:
+    #2f241d;
+
+  padding:
+    12px;
+
+}
+
+
+/* =========================================================
+   APPLICATION
+========================================================= */
+
+.app {
+
+  width:
+    100%;
+
+  max-width:
+    900px;
+
+  margin:
+    0 auto;
+
+  background:
+    #fffdf9;
+
+  border-radius:
+    24px;
+
+  overflow:
+    hidden;
+
+  box-shadow:
+    0 15px 45px
+    rgba(55,38,25,.15);
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+  background:
+   #8b5e3c;
+
+  color:
+    white;
+
+  padding:
+    30px;
+
+  text-align:
+    center;
+
+}
+
+
+header h1 {
+
+  margin:
+    0;
+
+  font-size:
+    clamp(20px, 4vw, 26px);
+
+  font-weight:
+    700;
+
+}
+
+
+header p {
+
+  margin:
+    6px 0 0;
+
+  color:
+    #f1d59f;
+
+  font-size:
+    14px;
+
+  font-weight:
+    bold;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+
+  padding:
+    clamp(16px, 4vw, 30px);
+
+}
+
+
+.screen {
+
+  display:
+    none;
+
+}
+
+
+.screen.active {
+
+  display:
+    block;
+
+}
+
+
+/* =========================================================
+   CENTRAGE
+========================================================= */
+
+.center {
+
+  text-align:
+    center;
+
+  padding:
+    10px 0;
+
+}
+
+
+/* =========================================================
+   TITRE ARABE
+========================================================= */
+
+.arabic-title {
+
+  direction:
+    rtl;
+
+  font-size:
+    clamp(48px, 20vw, 60px);
+
+  font-weight:
+    800;
+
+  color:
+    #3f2b20;
+
+  line-height:
+    1.05;
+
+  margin:
+    5px 0 8px;
+
+  text-shadow:
+    0 3px 8px
+    rgba(63,43,32,.12);
+
+}
+
+
+.arabic-title::after {
+
+  content:
+    "";
+
+  display:
+    block;
+
+  width:
+    250px;
+
+  height:
+    4px;
+
+  margin:
+    12px auto 0;
+
+  border-radius:
+    20px;
+
+  background:
+    #c59b5f;
+
+}
+
+
+/* =========================================================
+   BIENVENUE
+========================================================= */
+
+.welcome-title {
+
+  font-size:
+    clamp(26px, 6vw, 36px);
+
+  color:
+    #3f2b20;
+
+  font-weight:
+    700;
+
+  margin:
+    10px 0 8px;
+
+}
+
+
+.welcome-description {
+
+  max-width:
+    560px;
+
+  margin:
+    0 auto 20px;
+
+  font-size:
+    15px;
+
+  line-height:
+    1.6;
+
+  color:
+    #7a6758;
+
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+input {
+
+  width:
+    100%;
+
+  padding:
+    15px;
+
+  border:
+    2px solid #e1d5c8;
+
+  border-radius:
+    13px;
+
+  font-size:
+    17px;
+
+  margin:
+    8px 0 15px;
+
+  outline:
+    none;
+
+  -webkit-appearance:
+    none;
+
+}
+
+
+input:focus {
+
+  border-color:
+    #8b5e3c;
+
+}
+
+
+/* =========================================================
+   BOUTONS
+========================================================= */
+
+.primary,
+.secondary {
+
+  border:
+    0;
+
+  border-radius:
+    13px;
+
+  padding:
+    14px 24px;
+
+  font-weight:
+    bold;
+
+  font-size:
+    16px;
+
+  cursor:
+    pointer;
+
+  min-height:
+    48px;
+
+  touch-action:
+    manipulation;
+
+}
+
+
+.primary {
+
+  background:
+    #8b5e3c;
+
+  color:
+    white;
+
+}
+
+
+.primary:hover {
+
+  background:
+    #744c30;
+
+}
+
+
+.secondary {
+
+  background:
+    #eee5da;
+
+  color:
+    #3f2b20;
+
+}
+
+
+/* =========================================================
+   ERREUR
+========================================================= */
+
+.error {
+
+  color:
+    #a32f27;
+
+  font-weight:
+    bold;
+
+  min-height:
+    25px;
+
+  margin-bottom:
+    5px;
+
+}
+
+
+.status {
+
+  font-size:
+    14px;
+
+  min-height:
+    22px;
+
+  margin-top:
+    12px;
+
+}
+
+
+/* =========================================================
+   STATISTIQUES
+========================================================= */
+
+.stats {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr;
+
+  gap:
+    12px;
+
+  margin-bottom:
+    18px;
+
+}
+
+
+.stat {
+
+  background:
+    #f5eee5;
+
+  padding:
+    13px 10px;
+
+  border-radius:
+    14px;
+
+  text-align:
+    center;
+
+  font-size:
+    17px;
+
+  font-weight:
+    bold;
+
+}
+
+
+.stat-label {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    7px;
+
+  font-size:
+    17px;
+
+  font-weight:
+    bold;
+
+}
+
+
+.stat-emoji {
+
+  font-size:
+    22px;
+
+  line-height:
+    1;
+
+}
+
+
+.stat strong {
+
+  display:
+    block;
+
+  font-size:
+    25px;
+
+  margin-top:
+    5px;
+
+}
+
+
+/* =========================================================
+   PROGRESSION
+========================================================= */
+
+.progress {
+
+  width:
+    100%;
+
+  height:
+    9px;
+
+  background:
+    #eee5da;
+
+  border-radius:
+    99px;
+
+  overflow:
+    hidden;
+
+  margin-bottom:
+    25px;
+
+}
+
+
+.bar {
+
+  height:
+    100%;
+
+  background:
+    #8b5e3c;
+
+  width:
+    0;
+
+  transition:
+    .3s;
+
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+.q {
+
+  text-align:
+    center;
+
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.q img {
+
+  display:
+    block;
+
+  width:
+    min(400px, 100%);
+
+  height:
+    230px;
+
+  object-fit:
+    contain;
+
+  border-radius:
+    18px;
+
+  background:
+    #eee5da;
+
+  margin:
+    0 auto 20px;
+
+  padding:
+    5px;
+
+}
+
+
+/* =========================================================
+   AUDIO
+========================================================= */
+
+.audio-container {
+
+  background:
+    #f5eee5;
+
+  border-radius:
+    18px;
+
+  padding:
+    20px;
+
+  margin:
+    0 auto 20px;
+
+  width:
+    100%;
+
+  max-width:
+    600px;
+
+}
+
+
+.audio-title {
+
+  font-size:
+    16px;
+
+  font-weight:
+    bold;
+
+  margin-bottom:
+    12px;
+
+  color:
+    #3f2b20;
+
+}
+
+
+.audio-container audio {
+
+  display:
+    block;
+
+  width:
+    100%;
+
+  max-width:
+    100%;
+
+}
+
+
+/* =========================================================
+   QUESTION TEXTE
+========================================================= */
+
+.question {
+
+  font-size:
+    clamp(27px, 6vw, 34px);
+
+  direction:
+    rtl;
+
+  font-weight:
+    bold;
+
+  margin:
+    18px 10px 22px;
+
+  color:
+    #3f2b20;
+
+}
+
+
+/* =========================================================
+   RÉPONSES
+========================================================= */
+
+.answers {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    12px;
+
+  width:
+    100%;
+
+}
+
+
+.answer {
+
+  background:
+    #fff;
+
+  border:
+    2px solid #e4d9cd;
+
+  border-radius:
+    13px;
+
+  padding:
+    15px 12px;
+
+  min-height:
+    58px;
+
+  font-size:
+    clamp(18px, 4vw, 21px);
+
+  cursor:
+    pointer;
+
+  direction:
+    rtl;
+
+  touch-action:
+    manipulation;
+
+  transition:
+    .15s;
+
+}
+
+
+.answer:hover {
+
+  border-color:
+    #8b5e3c;
+
+}
+
+
+.answer:disabled {
+
+  cursor:
+    default;
+
+  opacity:
+    .95;
+
+}
+
+
+.answer.correct {
+
+  background:
+    #e7f5e9;
+
+  border-color:
+    #55a563;
+
+}
+
+
+.answer.wrong {
+
+  background:
+    #fae9e7;
+
+  border-color:
+    #d86b60;
+
+}
+
+
+/* =========================================================
+   FEEDBACK
+========================================================= */
+
+.feedback {
+
+  text-align:
+    center;
+
+  min-height:
+    30px;
+
+  font-weight:
+    bold;
+
+  margin:
+    15px 5px;
+
+  line-height:
+    1.5;
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+.next {
+
+  text-align:
+    center;
+
+  margin-top:
+    10px;
+
+}
+
+
+/* =========================================================
+   RÉSULTAT
+========================================================= */
+
+.result {
+
+  text-align:
+    center;
+
+}
+
+
+.trophy {
+
+  font-size:
+    clamp(55px, 12vw, 70px);
+
+}
+
+
+.resultbox {
+
+  background:
+    #f5eee5;
+
+  border-radius:
+    15px;
+
+  padding:
+    18px;
+
+  margin:
+    20px auto;
+
+  width:
+    100%;
+
+  max-width:
+    320px;
+
+  font-size:
+    18px;
+
+}
+
+
+.resultbox strong {
+
+  display:
+    block;
+
+  font-size:
+    30px;
+
+  margin-top:
+    5px;
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+
+  text-align:
+    center;
+
+  padding:
+    40px 10px;
+
+}
+
+
+.spinner {
+
+  font-size:
+    40px;
+
+  animation:
+    spin 1.2s linear infinite;
+
+}
+
+
+@keyframes spin {
+
+  from {
+
+    transform:
+      rotate(0deg);
+
+  }
+
+  to {
+
+    transform:
+      rotate(360deg);
+
+  }
+
+}
+
+
+/* =========================================================
+   TABLETTES
+========================================================= */
+
+@media (max-width:700px) {
+
+  body {
+
+    padding:
+      6px;
+
+  }
+
+
+  .app {
+
+    border-radius:
+      18px;
+
+  }
+
+
+  main {
+
+    padding:
+      18px;
+
+  }
+
+
+  .q img {
+
+    height:
+      210px;
+
+  }
+
+}
+
+
+/* =========================================================
+   TÉLÉPHONES
+========================================================= */
+
+@media (max-width:560px) {
+
+  body {
+
+    padding:
+      0;
+
+  }
+
+
+  .app {
+
+    min-height:
+      100vh;
+
+    border-radius:
+      0;
+
+  }
+
+
+  header {
+
+    padding:
+      17px 14px;
+
+  }
+
+
+  main {
+
+    padding:
+      15px;
+
+  }
+
+
+  .arabic-title {
+
+    font-size:
+      52px;
+
+  }
+
+
+  .welcome-title {
+
+    font-size:
+      28px;
+
+  }
+
+
+  .answers {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      10px;
+
+  }
+
+
+  .answer {
+
+    width:
+      100%;
+
+    min-height:
+      56px;
+
+  }
+
+
+  .question {
+
+    margin:
+      16px 5px 20px;
+
+  }
+
+
+  .audio-container {
+
+    padding:
+      15px;
+
+  }
+
+}
+
+
+/* =========================================================
+   TRÈS PETITS TÉLÉPHONES
+========================================================= */
+
+@media (max-width:380px) {
+
+  .arabic-title {
+
+    font-size:
+      46px;
+
+  }
+
+
+  .stat-label {
+
+    font-size:
+      14px;
+
+  }
+
+
+  .stat-emoji {
+
+    font-size:
+      19px;
+
+  }
+
+
+  .stat strong {
+
+    font-size:
+      21px;
+
+  }
+
+
+  .question {
+
+    font-size:
+      26px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<h1>
+🧑‍🏫 Quiz : الحُرُوف
+</h1>
+
+
+
+</header>
+
+
+
+<main>
+
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<section
+id="loginScreen"
+class="screen active"
+>
+
+<div class="center">
+
+
+<div class="arabic-title">
+مَرْحَبًا بِكُمْ !
+</div>
+
+
+<h2 class="welcome-title">
+Bienvenue !👋
+</h2>
+
+
+<p class="welcome-description">
+
+Entrez votre prénom pour commencer le quiz.<br>
+
+Votre résultat sera enregistré automatiquement.
+
+</p>
+
+
+<input
+id="studentName"
+type="text"
+maxlength="80"
+autocomplete="name"
+placeholder="Votre prénom"
+>
+
+
+<div
+id="loginError"
+class="error"
+>
+</div>
+
+
+<button
+class="primary"
+id="startBtn"
+>
+
+🚀 Commencer le jeu
+
+</button>
+
+
+<div
+id="firebaseStatus"
+class="status"
+>
+
+Connexion à Firebase…
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LOADING
+===================================================== -->
+
+<section
+id="loadingScreen"
+class="screen"
+>
+
+<div class="loading">
+
+<div class="spinner">
+⏳
+</div>
+
+<h2>
+Chargement du jeu...
+</h2>
+
+<p>
+Récupération des questions.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GAME
+===================================================== -->
+
+<section
+id="gameScreen"
+class="screen"
+>
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div class="stat-label">
+
+<span class="stat-emoji">
+📝
+</span>
+
+<span>
+Question
+</span>
+
+</div>
+
+
+<strong id="counter">
+1 / 28
+</strong>
+
+</div>
+
+
+</div>
+
+
+
+<div class="progress">
+
+<div
+class="bar"
+id="progressBar">
+</div>
+
+</div>
+
+
+
+<div class="q">
+
+
+<img
+id="questionImage"
+alt="Illustration"
+style="display:none;"
+>
+
+
+
+<div
+id="audioContainer"
+class="audio-container"
+style="display:none;"
+>
+
+<div class="audio-title">
+
+🎧 Écoutez et choisissez la bonne réponse
+
+</div>
+
+
+<audio
+id="questionAudio"
+controls>
+</audio>
+
+</div>
+
+
+
+<div
+class="question"
+id="questionText"
+>
+
+مَا الحَرْفُ؟
+
+</div>
+
+
+
+<div
+class="answers"
+id="answers">
+</div>
+
+
+
+<div
+class="feedback"
+id="feedback">
+</div>
+
+
+
+<div class="next">
+
+<button
+class="primary"
+id="nextBtn"
+style="display:none;"
+>
+
+Question suivante →
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULT
+===================================================== -->
+
+<section
+id="resultScreen"
+class="screen"
+>
+
+<div class="center result">
+
+
+<div
+class="trophy"
+id="trophy"
+>
+🏆
+</div>
+
+
+<h2 id="resultTitle">
+Bravo !
+</h2>
+
+
+<p id="resultText">
+</p>
+
+
+<div class="resultbox">
+
+Bonnes réponses
+
+<strong id="finalScore">
+0 / 28
+</strong>
+
+</div>
+
+
+<div
+id="saveStatus"
+class="status"
+>
+
+Enregistrement du résultat…
+
+</div>
+
+
+<button
+class="secondary"
+onclick="location.reload()"
+>
+
+🔄 Rejouer
+
+</button>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+
+<!-- =====================================================
+     BUZZERS
+===================================================== -->
+
+<audio
+id="correctBuzzer"
+preload="auto"
+src="audio/correct.mp3">
+</audio>
+
+
+<audio
+id="wrongBuzzer"
+preload="auto"
+src="audio/wrong.mp3">
+</audio>
+
+
+
+<script type="module">
+
+
+/* =========================================================
+   FIREBASE
+========================================================= */
+
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+  getAuth,
+  signInAnonymously
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+
+const firebaseConfig = {
+
+  apiKey:
+  "AIzaSyCzcH48LRFuVqxryQsLDGX_JOAky7E2aOE",
+
+  authDomain:
+  "mission-arabia.firebaseapp.com",
+
+  projectId:
+  "mission-arabia",
+
+  storageBucket:
+  "mission-arabia.firebasestorage.app",
+
+  messagingSenderId:
+  "434432746016",
+
+  appId:
+  "1:434432746016:web:ea1641808436de258e5245",
+
+  measurementId:
+  "G-S0LDW67DPE"
+
+};
+
+
+
+const app =
+initializeApp(firebaseConfig);
+
+
+const auth =
+getAuth(app);
+
+
+const db =
+getFirestore(app);
+
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let firebaseUser = null;
+
+let questions = [];
+
+let gameQuestions = [];
+
+let studentName = "";
+
+let current = 0;
+
+let correct = 0;
+
+let answered = false;
+
+
+
+/* =========================================================
+   OUTIL
+========================================================= */
+
+const $ = id =>
+document.getElementById(id);
+
+
+
+/* =========================================================
+   BUZZERS
+========================================================= */
+
+const correctBuzzer =
+$("correctBuzzer");
+
+
+const wrongBuzzer =
+$("wrongBuzzer");
+
+
+
+function playCorrectBuzzer() {
+
+  correctBuzzer.pause();
+
+  correctBuzzer.currentTime = 0;
+
+  const promise =
+  correctBuzzer.play();
+
+  if (promise !== undefined) {
+
+    promise.catch(
+      error => {
+
+        console.error(
+          "Erreur correct buzzer :",
+          error
+        );
+
+      }
+    );
+
+  }
+
+}
+
+
+
+function playWrongBuzzer() {
+
+  wrongBuzzer.pause();
+
+  wrongBuzzer.currentTime = 0;
+
+  const promise =
+  wrongBuzzer.play();
+
+  if (promise !== undefined) {
+
+    promise.catch(
+      error => {
+
+        console.error(
+          "Erreur wrong buzzer :",
+          error
+        );
+
+      }
+    );
+
+  }
+
+}
+
+
+
+/* =========================================================
+   ÉCRANS
+========================================================= */
+
+function showScreen(id) {
+
+  document
+  .querySelectorAll(".screen")
+  .forEach(
+    screen =>
+    screen.classList.remove(
+      "active"
+    )
+  );
+
+
+  $(id).classList.add(
+    "active"
+  );
+
+}
+
+
+
+/* =========================================================
+   FIREBASE AUTH
+========================================================= */
+
+async function initializeFirebase() {
+
+  try {
+
+    const result =
+    await signInAnonymously(
+      auth
+    );
+
+
+    firebaseUser =
+    result.user;
+
+
+    $("firebaseStatus")
+    .textContent =
+    "✅ Connexion sécurisée prête.";
+
+
+    $("firebaseStatus")
+    .style.color =
+    "#276431";
+
+  }
+
+
+  catch(error) {
+
+    console.error(
+      "Erreur Authentication :",
+      error
+    );
+
+
+    $("firebaseStatus")
+    .textContent =
+    "⚠️ Impossible de se connecter à Firebase.";
+
+
+    $("firebaseStatus")
+    .style.color =
+    "#8b2f27";
+
+  }
+
+}
+
+
+initializeFirebase();
+
+
+
+/* =========================================================
+   QUESTIONS FIREBASE
+========================================================= */
+
+async function loadQuestions() {
+
+  try {
+
+    const snapshot =
+    await getDocs(
+      collection(
+        db,
+        "questions"
+      )
+    );
+
+
+    questions = [];
+
+
+    snapshot.forEach(
+      doc => {
+
+        const data =
+        doc.data();
+
+
+        questions.push({
+
+          id:
+          doc.id,
+
+          word:
+          data.word,
+
+          image:
+          data.image || "",
+
+          audio:
+          data.audio || "",
+
+          options:
+          data.options,
+
+          category:
+          data.category,
+
+          level:
+          data.level
+
+        });
+
+      }
+    );
+
+
+    if (
+      questions.length === 0
+    ) {
+
+      throw new Error(
+        "Aucune question trouvée."
+      );
+
+    }
+
+
+    return true;
+
+  }
+
+
+  catch(error) {
+
+    console.error(
+      error
+    );
+
+
+    $("loginError")
+    .textContent =
+    "Impossible de récupérer les questions depuis Firebase.";
+
+
+    showScreen(
+      "loginScreen"
+    );
+
+
+    return false;
+
+  }
+
+}
+
+
+
+/* =========================================================
+   SHUFFLE
+========================================================= */
+
+function shuffle(array) {
+
+  return array.sort(
+    () =>
+    Math.random() - 0.5
+  );
+
+}
+
+
+
+/* =========================================================
+   START
+========================================================= */
+
+$("startBtn")
+.addEventListener(
+  "click",
+  startGame
+);
+
+
+
+async function startGame() {
+
+  studentName =
+  $("studentName")
+  .value
+  .trim();
+
+
+  if (
+    !studentName
+  ) {
+
+    $("loginError")
+    .textContent =
+    "Veuillez entrer votre prénom.";
+
+    return;
+
+  }
+
+
+  if (
+    !firebaseUser
+  ) {
+
+    $("loginError")
+    .textContent =
+    "La connexion Firebase n'est pas encore prête.";
+
+    return;
+
+  }
+
+
+  $("loginError")
+  .textContent =
+  "";
+
+
+  showScreen(
+    "loadingScreen"
+  );
+
+
+  const loaded =
+  await loadQuestions();
+
+
+  if (!loaded) {
+
+    return;
+
+  }
+
+
+  /*
+  =========================================
+  LE JEU PREND 28 QUESTIONS
+
+  Si Firebase contient exactement
+  28 questions, le joueur jouera
+  les 28.
+
+  Le jeu ne s'arrêtera plus en cas
+  de mauvaise réponse.
+  =========================================
+  */
+
+  gameQuestions =
+  shuffle([
+    ...questions
+  ])
+  .slice(
+    0,
+    Math.min(
+      28,
+      questions.length
+    )
+  );
+
+
+  current = 0;
+
+  correct = 0;
+
+
+  showScreen(
+    "gameScreen"
+  );
+
+
+  renderQuestion();
+
+}
+
+
+
+/* =========================================================
+   RENDER QUESTION
+========================================================= */
+
+function renderQuestion() {
+
+  const question =
+  gameQuestions[current];
+
+
+  answered =
+  false;
+
+
+  /*
+  =========================================
+  COMPTEUR
+  =========================================
+  */
+
+  $("counter")
+  .textContent =
+  `${current + 1} / ${gameQuestions.length}`;
+
+
+  /*
+  =========================================
+  PROGRESSION
+  =========================================
+  */
+
+  $("progressBar")
+  .style.width =
+  `${current /
+  gameQuestions.length *
+  100}%`;
+
+
+  /*
+  =========================================
+  IMAGE / AUDIO
+  =========================================
+  */
+
+  const image =
+  $("questionImage");
+
+
+  const audioContainer =
+  $("audioContainer");
+
+
+  const audio =
+  $("questionAudio");
+
+
+  audio.pause();
+
+  audio.currentTime = 0;
+
+  audio.removeAttribute(
+    "src"
+  );
+
+  audio.load();
+
+
+  if (
+    question.audio
+  ) {
+
+    audioContainer
+    .style.display =
+    "block";
+
+
+    image.style.display =
+    "none";
+
+
+    audio.src =
+    question.audio;
+
+
+    audio.load();
+
+  }
+
+
+  else if (
+    question.image
+  ) {
+
+    audioContainer
+    .style.display =
+    "none";
+
+
+    image.style.display =
+    "block";
+
+
+    image.src =
+    question.image;
+
+  }
+
+
+  else {
+
+    audioContainer
+    .style.display =
+    "none";
+
+
+    image.style.display =
+    "none";
+
+  }
+
+
+
+  /*
+  =========================================
+  QUESTION
+  =========================================
+  */
+
+  $("questionText")
+  .textContent =
+  "مَا الحَرْفُ؟";
+
+
+  $("feedback")
+  .textContent =
+  "";
+
+
+  $("nextBtn")
+  .style.display =
+  "none";
+
+
+
+  /*
+  =========================================
+  RÉPONSES
+  =========================================
+  */
+
+  const answers =
+  $("answers");
+
+
+  answers.innerHTML =
+  "";
+
+
+  const options =
+  shuffle([
+    ...question.options
+  ]);
+
+
+  options.forEach(
+    option => {
+
+      const button =
+      document.createElement(
+        "button"
+      );
+
+
+      button.className =
+      "answer";
+
+
+      button.textContent =
+      option;
+
+
+      button.addEventListener(
+        "click",
+        () =>
+        checkAnswer(
+          button,
+          option
+        )
+      );
+
+
+      answers.appendChild(
+        button
+      );
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   CHECK ANSWER
+========================================================= */
+
+function checkAnswer(
+  button,
+  answer
+) {
+
+
+  if (
+    answered
+  ) {
+
+    return;
+
+  }
+
+
+  answered =
+  true;
+
+
+  const question =
+  gameQuestions[current];
+
+
+  /*
+  =========================================
+  DÉSACTIVER LES RÉPONSES
+  =========================================
+  */
+
+  document
+  .querySelectorAll(".answer")
+  .forEach(
+    button => {
+
+      button.disabled =
+      true;
+
+    }
+  );
+
+
+
+  /*
+  =========================================
+  BONNE RÉPONSE
+  =========================================
+  */
+
+  if (
+    answer ===
+    question.word
+  ) {
+
+
+    button.classList.add(
+      "correct"
+    );
+
+
+    correct++;
+
+
+    playCorrectBuzzer();
+
+
+    $("feedback")
+    .textContent =
+    "✅ Bravo ! Bonne réponse.";
+
+
+    $("feedback")
+    .style.color =
+    "#276431";
+
+
+    $("progressBar")
+    .style.width =
+    `${(current + 1) /
+    gameQuestions.length *
+    100}%`;
+
+
+  }
+
+
+  /*
+  =========================================
+  MAUVAISE RÉPONSE
+
+  IMPORTANT :
+
+  On NE termine plus le jeu.
+
+  Le joueur continue jusqu'à
+  la question 28.
+  =========================================
+  */
+
+  else {
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    playWrongBuzzer();
+
+
+    /*
+    Montrer la bonne réponse
+    */
+
+    document
+    .querySelectorAll(".answer")
+    .forEach(
+      answerButton => {
+
+        if (
+          answerButton.textContent ===
+          question.word
+        ) {
+
+          answerButton.classList.add(
+            "correct"
+          );
+
+        }
+
+      }
+    );
+
+
+    $("feedback")
+    .textContent =
+    `❌ Mauvaise réponse ! La bonne réponse était : ${question.word}`;
+
+
+    $("feedback")
+    .style.color =
+    "#8b2f27";
+
+
+    /*
+    IMPORTANT :
+
+    La progression avance même
+    après une mauvaise réponse.
+    */
+
+    $("progressBar")
+    .style.width =
+    `${(current + 1) /
+    gameQuestions.length *
+    100}%`;
+
+  }
+
+
+
+  /*
+  =========================================
+  AFFICHER LE BOUTON SUIVANT
+
+  Pour la dernière question,
+  le bouton devient "Voir mon score".
+  =========================================
+  */
+
+  if (
+    current ===
+    gameQuestions.length - 1
+  ) {
+
+
+    $("nextBtn")
+    .textContent =
+    "🏆 Voir mon score";
+
+
+  }
+
+
+  else {
+
+
+    $("nextBtn")
+    .textContent =
+    "Question suivante →";
+
+  }
+
+
+  $("nextBtn")
+  .style.display =
+  "inline-block";
+
+}
+
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+$("nextBtn")
+.addEventListener(
+  "click",
+  nextQuestion
+);
+
+
+
+function nextQuestion() {
+
+
+  if (
+    current <
+    gameQuestions.length - 1
+  ) {
+
+
+    current++;
+
+
+    renderQuestion();
+
+  }
+
+
+  else {
+
+
+    finishGame();
+
+  }
+
+}
+
+
+
+/* =========================================================
+   FIN DU JEU
+========================================================= */
+
+async function finishGame() {
+
+
+  /*
+  =========================================
+  PLUS DE TIMER À ARRÊTER
+  =========================================
+  */
+
+
+  $("questionAudio")
+  .pause();
+
+
+  showScreen(
+    "resultScreen"
+  );
+
+
+  const total =
+  gameQuestions.length;
+
+
+  $("finalScore")
+  .textContent =
+  `${correct} / ${total}`;
+
+
+  $("resultText")
+  .textContent =
+  `Vous avez obtenu ${correct} bonne(s) réponse(s) sur ${total}.`;
+
+
+
+  /*
+  =========================================
+  MESSAGE FINAL
+  =========================================
+  */
+
+  if (
+    correct === total
+  ) {
+
+
+    $("trophy")
+    .textContent =
+    "🏆";
+
+
+    $("resultTitle")
+    .textContent =
+    "Excellent !";
+
+  }
+
+
+  else if (
+    correct >= total * .7
+  ) {
+
+
+    $("trophy")
+    .textContent =
+    "🥇";
+
+
+    $("resultTitle")
+    .textContent =
+    "Très bien !";
+
+  }
+
+
+  else if (
+    correct >= total * .5
+  ) {
+
+
+    $("trophy")
+    .textContent =
+    "🥈";
+
+
+    $("resultTitle")
+    .textContent =
+    "Bon travail !";
+
+  }
+
+
+  else {
+
+
+    $("trophy")
+    .textContent =
+    "🌱";
+
+
+    $("resultTitle")
+    .textContent =
+    "Continuez vos efforts !";
+
+  }
+
+
+
+  /*
+  =========================================
+  ENREGISTRER LE SCORE
+  =========================================
+  */
+
+  await saveScore();
+
+}
+
+
+
+/* =========================================================
+   SAVE SCORE FIRESTORE
+========================================================= */
+
+async function saveScore() {
+
+  const status =
+  $("saveStatus");
+
+
+  if (
+    !firebaseUser
+  ) {
+
+
+    status.textContent =
+    "❌ Aucun utilisateur Firebase connecté.";
+
+
+    status.style.color =
+    "#8b2f27";
+
+
+    return;
+
+  }
+
+
+
+  try {
+
+
+    await addDoc(
+
+      collection(
+        db,
+        "scores"
+      ),
+
+      {
+
+        studentName:
+        studentName,
+
+        correctAnswers:
+        correct,
+
+        totalQuestions:
+        gameQuestions.length,
+
+        game:
+        "Mission : العربي",
+
+        playerUid:
+        firebaseUser.uid,
+
+        createdAt:
+        serverTimestamp()
+
+      }
+
+    );
+
+
+    status.textContent =
+    "✅ Résultat enregistré avec succès !";
+
+
+    status.style.color =
+    "#276431";
+
+  }
+
+
+  catch(error) {
+
+
+    console.error(
+      "Erreur Firestore :",
+      error
+    );
+
+
+    status.textContent =
+    "❌ Erreur Firestore : vérifie les règles de sécurité.";
+
+
+    status.style.color =
+    "#8b2f27";
+
+  }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
