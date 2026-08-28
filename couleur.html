@@ -361,6 +361,21 @@ input:focus {
   text-align: center;
 }
 
+.question-label {
+  text-align: center;
+
+  font-size:
+    clamp(20px, 5vw, 28px);
+
+  font-weight: bold;
+
+  color: #7a6758;
+
+  margin-top: 25px;
+
+  margin-bottom: 5px;
+}
+
 .question {
   font-size:
     clamp(27px, 7vw, 42px);
@@ -368,11 +383,13 @@ input:focus {
   font-weight: bold;
 
   margin:
-    35px 10px;
+    15px 10px 35px;
 
   color: #3f2b20;
 
   line-height: 1.5;
+
+  direction: rtl;
 }
 
 
@@ -571,7 +588,8 @@ input:focus {
   }
 
   .question {
-    margin: 30px 5px;
+    margin:
+      10px 5px 30px;
   }
 
 }
@@ -583,9 +601,6 @@ input:focus {
 <body>
 
 <div class="app">
-
-
-<!-- HEADER -->
 
 <header>
 
@@ -600,13 +615,10 @@ Réviser l'arabe en jouant
 </header>
 
 
-
 <main>
 
 
-<!-- =====================================================
-     ÉCRAN D'ACCUEIL
-===================================================== -->
+<!-- ÉCRAN D'ACCUEIL -->
 
 <section
 id="loginScreen"
@@ -668,9 +680,7 @@ Connexion à Firebase…
 
 
 
-<!-- =====================================================
-     LOADING
-===================================================== -->
+<!-- CHARGEMENT -->
 
 <section
 id="loadingScreen"
@@ -696,9 +706,7 @@ Récupération des questions.
 
 
 
-<!-- =====================================================
-     JEU
-===================================================== -->
+<!-- JEU -->
 
 <section
 id="gameScreen"
@@ -730,7 +738,6 @@ Question
 </div>
 
 
-
 <div class="progress">
 
 <div
@@ -743,6 +750,11 @@ id="progressBar">
 
 
 <div class="q">
+
+
+<div class="question-label">
+Que signifie :
+</div>
 
 
 <div
@@ -782,16 +794,13 @@ Question suivante →
 
 
 
-<!-- =====================================================
-     RÉSULTAT
-===================================================== -->
+<!-- RÉSULTAT -->
 
 <section
 id="resultScreen"
 class="screen">
 
 <div class="center result">
-
 
 <div
 class="trophy"
@@ -839,7 +848,6 @@ onclick="location.reload()">
 
 </button>
 
-
 </div>
 
 </section>
@@ -851,9 +859,7 @@ onclick="location.reload()">
 
 
 
-<!-- =====================================================
-     BUZZERS
-===================================================== -->
+<!-- BUZZERS -->
 
 <audio
 id="correctBuzzer"
@@ -932,10 +938,8 @@ const firebaseConfig = {
 const app =
 initializeApp(firebaseConfig);
 
-
 const auth =
 getAuth(app);
-
 
 const db =
 getFirestore(app);
@@ -947,15 +951,10 @@ getFirestore(app);
 ========================================================= */
 
 let firebaseUser = null;
-
 let questions = [];
-
 let studentName = "";
-
 let current = 0;
-
 let correct = 0;
-
 let answered = false;
 
 
@@ -976,7 +975,6 @@ document.getElementById(id);
 const correctBuzzer =
 $("correctBuzzer");
 
-
 const wrongBuzzer =
 $("wrongBuzzer");
 
@@ -984,7 +982,6 @@ $("wrongBuzzer");
 function playCorrectBuzzer() {
 
   correctBuzzer.pause();
-
   correctBuzzer.currentTime = 0;
 
   correctBuzzer.play()
@@ -996,7 +993,6 @@ function playCorrectBuzzer() {
 function playWrongBuzzer() {
 
   wrongBuzzer.pause();
-
   wrongBuzzer.currentTime = 0;
 
   wrongBuzzer.play()
@@ -1045,7 +1041,6 @@ async function initializeFirebase() {
     .textContent =
     "✅ Connexion sécurisée prête.";
 
-
     $("firebaseStatus")
     .style.color =
     "#276431";
@@ -1056,11 +1051,9 @@ async function initializeFirebase() {
 
     console.error(error);
 
-
     $("firebaseStatus")
     .textContent =
     "⚠️ Impossible de se connecter à Firebase.";
-
 
     $("firebaseStatus")
     .style.color =
@@ -1102,14 +1095,6 @@ async function loadQuestions() {
         doc.data();
 
 
-        /*
-        Chaque question doit contenir :
-
-        question
-        correctAnswer
-        options
-        */
-
         if (
           data.question &&
           data.correctAnswer &&
@@ -1118,8 +1103,7 @@ async function loadQuestions() {
 
           questions.push({
 
-            id:
-            doc.id,
+            id: doc.id,
 
             question:
             data.question,
@@ -1178,7 +1162,7 @@ async function loadQuestions() {
 
 
 /* =========================================================
-   MÉLANGER LES QUESTIONS
+   MÉLANGER
 ========================================================= */
 
 function shuffle(array) {
@@ -1211,9 +1195,7 @@ async function startGame() {
   .trim();
 
 
-  if (
-    !studentName
-  ) {
+  if (!studentName) {
 
     $("loginError")
     .textContent =
@@ -1224,9 +1206,7 @@ async function startGame() {
   }
 
 
-  if (
-    !firebaseUser
-  ) {
+  if (!firebaseUser) {
 
     $("loginError")
     .textContent =
@@ -1257,17 +1237,11 @@ async function startGame() {
   }
 
 
-  /*
-  Mélange toutes les questions
-  présentes dans Firestore.
-  */
-
   questions =
   shuffle(questions);
 
 
   current = 0;
-
   correct = 0;
 
 
@@ -1295,23 +1269,10 @@ function renderQuestion() {
   answered = false;
 
 
-  /*
-  COMPTEUR
-
-  Le total est automatiquement
-  le nombre de questions présentes
-  dans Firestore.
-  */
-
   $("counter")
   .textContent =
   `${current + 1} / ${questions.length}`;
 
-
-
-  /*
-  PROGRESSION
-  */
 
   $("progressBar")
   .style.width =
@@ -1320,20 +1281,10 @@ function renderQuestion() {
   100}%`;
 
 
-
-  /*
-  QUESTION
-  */
-
   $("questionText")
   .textContent =
   question.question;
 
-
-
-  /*
-  FEEDBACK
-  */
 
   $("feedback")
   .textContent =
@@ -1344,11 +1295,6 @@ function renderQuestion() {
   .style.display =
   "none";
 
-
-
-  /*
-  RÉPONSES
-  */
 
   const answers =
   $("answers");
@@ -1425,11 +1371,6 @@ function checkAnswer(
   questions[current];
 
 
-  /*
-  DÉSACTIVER
-  LES RÉPONSES
-  */
-
   document
   .querySelectorAll(".answer")
   .forEach(
@@ -1443,15 +1384,12 @@ function checkAnswer(
 
 
 
-  /* =======================================================
-     BONNE RÉPONSE
-  ======================================================= */
+  /* BONNE RÉPONSE */
 
   if (
     answer ===
     question.correctAnswer
   ) {
-
 
     button.classList.add(
       "correct"
@@ -1476,12 +1414,9 @@ function checkAnswer(
   }
 
 
-  /* =======================================================
-     MAUVAISE RÉPONSE
-  ======================================================= */
+  /* MAUVAISE RÉPONSE */
 
   else {
-
 
     button.classList.add(
       "wrong"
@@ -1490,11 +1425,6 @@ function checkAnswer(
 
     playWrongBuzzer();
 
-
-
-    /*
-    Montrer la bonne réponse
-    */
 
     document
     .querySelectorAll(".answer")
@@ -1528,23 +1458,12 @@ function checkAnswer(
   }
 
 
-
-  /*
-  METTRE À JOUR
-  LA PROGRESSION
-  */
-
   $("progressBar")
   .style.width =
   `${(current + 1) /
   questions.length *
   100}%`;
 
-
-
-  /*
-  BOUTON SUIVANT
-  */
 
   if (
     current ===
@@ -1633,11 +1552,6 @@ async function finishGame() {
   `Vous avez obtenu ${correct} bonne(s) réponse(s) sur ${total}.`;
 
 
-
-  /*
-  MESSAGE FINAL
-  */
-
   if (
     correct === total
   ) {
@@ -1693,11 +1607,6 @@ async function finishGame() {
   }
 
 
-
-  /*
-  ENREGISTRER LE SCORE
-  */
-
   await saveScore();
 
 }
@@ -1733,14 +1642,6 @@ async function saveScore() {
 
         totalQuestions:
         questions.length,
-
-        /*
-        IMPORTANT :
-
-        Permet de distinguer
-        ce jeu du jeu Alphabet
-        dans le dashboard.
-        */
 
         game:
         "Couleurs",
