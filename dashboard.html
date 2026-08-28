@@ -5,16 +5,18 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<title>Mission : العربية — Espace professeur</title>
+<title>Tableau de bord — Cours arabe</title>
 
 
 <style>
 
-/* =========================
+/* =====================================================
    STYLE GÉNÉRAL
-========================= */
+===================================================== */
 
 * {
     box-sizing: border-box;
@@ -41,8 +43,8 @@ body {
     color: #2f241d;
 
     padding: 20px;
-}
 
+}
 
 .app {
 
@@ -61,12 +63,13 @@ body {
     box-shadow:
         0 18px 50px
         rgba(55,38,25,0.15);
+
 }
 
 
-/* =========================
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 header {
 
@@ -83,8 +86,8 @@ header {
     align-items: center;
 
     gap: 20px;
-}
 
+}
 
 header h1 {
 
@@ -94,12 +97,9 @@ header h1 {
 
 }
 
-
 header p {
 
     margin: 6px 0 0;
-
-    color: white;
 
     opacity: 0.8;
 
@@ -107,10 +107,10 @@ header p {
 
 }
 
-
 .badge {
 
-    background: rgba(255,255,255,0.10);
+    background:
+        rgba(255,255,255,0.10);
 
     padding: 10px 14px;
 
@@ -121,9 +121,9 @@ header p {
 }
 
 
-/* =========================
+/* =====================================================
    MAIN
-========================= */
+===================================================== */
 
 main {
 
@@ -131,13 +131,11 @@ main {
 
 }
 
-
 .screen {
 
     display: none;
 
 }
-
 
 .screen.active {
 
@@ -146,9 +144,9 @@ main {
 }
 
 
-/* =========================
+/* =====================================================
    CONNEXION
-========================= */
+===================================================== */
 
 .login {
 
@@ -160,13 +158,11 @@ main {
 
 }
 
-
 .logo {
 
     font-size: 52px;
 
 }
-
 
 .login h2 {
 
@@ -176,7 +172,6 @@ main {
 
 }
 
-
 .login p {
 
     color: #6d5a4b;
@@ -185,7 +180,6 @@ main {
 
 }
 
-
 input {
 
     width: 100%;
@@ -193,7 +187,6 @@ input {
     padding: 15px;
 
     border:
-
         2px solid
         #e1d5c8;
 
@@ -202,7 +195,6 @@ input {
     font-size: 16px;
 
     margin:
-
         7px 0
         12px;
 
@@ -210,13 +202,16 @@ input {
 
 }
 
-
 input:focus {
 
     border-color: #8b5e3c;
 
 }
 
+
+/* =====================================================
+   BOUTONS
+===================================================== */
 
 button {
 
@@ -235,7 +230,6 @@ button {
 
 }
 
-
 .primary {
 
     background: #8b5e3c;
@@ -244,13 +238,11 @@ button {
 
 }
 
-
 .primary:hover {
 
     background: #744c30;
 
 }
-
 
 .secondary {
 
@@ -260,6 +252,10 @@ button {
 
 }
 
+
+/* =====================================================
+   ERREURS / STATUT
+===================================================== */
 
 .error {
 
@@ -273,7 +269,6 @@ button {
 
 }
 
-
 .status {
 
     font-size: 14px;
@@ -285,9 +280,9 @@ button {
 }
 
 
-/* =========================
+/* =====================================================
    CHARGEMENT
-========================= */
+===================================================== */
 
 .loading {
 
@@ -297,7 +292,6 @@ button {
 
 }
 
-
 .spinner {
 
     font-size: 35px;
@@ -306,7 +300,6 @@ button {
         spin 1s linear infinite;
 
 }
-
 
 @keyframes spin {
 
@@ -320,9 +313,9 @@ button {
 }
 
 
-/* =========================
-   TABLEAU DE BORD
-========================= */
+/* =====================================================
+   HAUT DU DASHBOARD
+===================================================== */
 
 .topbar {
 
@@ -340,7 +333,6 @@ button {
 
 }
 
-
 .title h2 {
 
     margin: 0;
@@ -348,7 +340,6 @@ button {
     font-size: 25px;
 
 }
-
 
 .title p {
 
@@ -359,9 +350,53 @@ button {
 }
 
 
-/* =========================
+/* =====================================================
+   ONGLETS DES JEUX
+===================================================== */
+
+.game-tabs {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+
+    flex-wrap: wrap;
+
+}
+
+.game-tab {
+
+    background: #eee5da;
+
+    color: #3f2b20;
+
+    border: 2px solid transparent;
+
+    padding:
+        13px 18px;
+
+}
+
+.game-tab:hover {
+
+    border-color: #c9b7a5;
+
+}
+
+.game-tab.active {
+
+    background: #8b5e3c;
+
+    color: white;
+
+}
+
+
+/* =====================================================
    STATISTIQUES
-========================= */
+===================================================== */
 
 .stats {
 
@@ -376,7 +411,6 @@ button {
 
 }
 
-
 .stat {
 
     background: #f5eee5;
@@ -389,7 +423,6 @@ button {
 
 }
 
-
 .stat span {
 
     display: block;
@@ -399,7 +432,6 @@ button {
     font-size: 13px;
 
 }
-
 
 .stat strong {
 
@@ -412,9 +444,9 @@ button {
 }
 
 
-/* =========================
-   TABLE
-========================= */
+/* =====================================================
+   TABLEAU
+===================================================== */
 
 .table-wrap {
 
@@ -428,7 +460,6 @@ button {
 
 }
 
-
 table {
 
     width: 100%;
@@ -439,7 +470,6 @@ table {
     background: white;
 
 }
-
 
 th,
 td {
@@ -454,7 +484,6 @@ td {
 
 }
 
-
 th {
 
     background: #f5eee5;
@@ -465,13 +494,11 @@ th {
 
 }
 
-
 td {
 
     font-size: 15px;
 
 }
-
 
 tbody tr:last-child td {
 
@@ -479,13 +506,11 @@ tbody tr:last-child td {
 
 }
 
-
 .score {
 
     font-weight: bold;
 
 }
-
 
 .empty {
 
@@ -498,9 +523,9 @@ tbody tr:last-child td {
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 .footer-note {
 
@@ -515,9 +540,9 @@ tbody tr:last-child td {
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media (max-width: 600px) {
 
@@ -527,7 +552,6 @@ tbody tr:last-child td {
 
     }
 
-
     .app {
 
         min-height: 100vh;
@@ -536,6 +560,17 @@ tbody tr:last-child td {
 
     }
 
+    header {
+
+        padding: 20px;
+
+    }
+
+    header h1 {
+
+        font-size: 20px;
+
+    }
 
     main {
 
@@ -543,13 +578,19 @@ tbody tr:last-child td {
 
     }
 
-
     .stats {
 
         grid-template-columns: 1fr;
 
     }
 
+    .game-tabs {
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+    }
 
     th,
     td {
@@ -572,16 +613,16 @@ tbody tr:last-child td {
 <div class="app">
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header>
 
     <div>
 
         <h1>
-            👨‍🏫 Mission : العربية
+            👨‍🏫 Cours arabe
         </h1>
 
         <p>
@@ -593,9 +634,10 @@ tbody tr:last-child td {
 
     <div
         class="badge"
-        id="connectionBadge"
-    >
+        id="connectionBadge">
+
         🔒 Déconnecté
+
     </div>
 
 </header>
@@ -605,14 +647,13 @@ tbody tr:last-child td {
 <main>
 
 
-<!-- =========================
+<!-- =====================================================
      PAGE DE CONNEXION
-========================= -->
+===================================================== -->
 
 <section
     id="loginScreen"
-    class="screen active"
->
+    class="screen active">
 
 
     <div class="login">
@@ -637,38 +678,48 @@ tbody tr:last-child td {
         </p>
 
 
-
         <form id="loginForm">
 
 
             <input
+
                 id="email"
+
                 type="email"
+
                 autocomplete="username"
+
                 placeholder="Adresse e-mail"
+
                 required
+
             >
 
 
             <input
+
                 id="password"
+
                 type="password"
+
                 autocomplete="current-password"
+
                 placeholder="Mot de passe"
+
                 required
+
             >
 
 
             <div
                 id="loginError"
-                class="error"
-            ></div>
+                class="error">
+            </div>
 
 
             <button
                 class="primary"
-                type="submit"
-            >
+                type="submit">
 
                 🔐 Se connecter
 
@@ -680,8 +731,8 @@ tbody tr:last-child td {
 
         <div
             id="loginStatus"
-            class="status"
-        ></div>
+            class="status">
+        </div>
 
 
     </div>
@@ -691,14 +742,13 @@ tbody tr:last-child td {
 
 
 
-<!-- =========================
+<!-- =====================================================
      CHARGEMENT
-========================= -->
+===================================================== -->
 
 <section
     id="loadingScreen"
-    class="screen"
->
+    class="screen">
 
 
     <div class="loading">
@@ -715,10 +765,8 @@ tbody tr:last-child td {
 
 
         <p>
-
             Récupération des scores
             depuis Firebase.
-
         </p>
 
 
@@ -729,14 +777,13 @@ tbody tr:last-child td {
 
 
 
-<!-- =========================
+<!-- =====================================================
      TABLEAU DE BORD
-========================= -->
+===================================================== -->
 
 <section
     id="dashboardScreen"
-    class="screen"
->
+    class="screen">
 
 
     <div class="topbar">
@@ -745,25 +792,27 @@ tbody tr:last-child td {
         <div class="title">
 
 
-            <h2>
-                📚 Résultats — Vocabulaire
+            <h2 id="dashboardTitle">
+
+                📊 Résultats
+
             </h2>
 
 
-            <p>
-                Prénom, score et date
-                de la partie.
+            <p id="dashboardDescription">
+
+                Sélectionnez un jeu pour
+                consulter les résultats.
+
             </p>
 
 
         </div>
 
 
-
         <button
             class="secondary"
-            id="logoutBtn"
-        >
+            id="logoutBtn">
 
             Se déconnecter
 
@@ -774,7 +823,38 @@ tbody tr:last-child td {
 
 
 
-    <!-- STATISTIQUES -->
+    <!-- =================================================
+         ONGLETS
+    ================================================= -->
+
+    <div class="game-tabs">
+
+
+        <button
+            class="game-tab active"
+            data-game="alphabet">
+
+            🔤 Mission : العربي
+
+        </button>
+
+
+        <button
+            class="game-tab"
+            data-game="couleurs">
+
+            🎨 Les couleurs
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         STATISTIQUES
+    ================================================= -->
 
     <div class="stats">
 
@@ -786,9 +866,10 @@ tbody tr:last-child td {
             </span>
 
             <strong
-                id="gamesCount"
-            >
+                id="gamesCount">
+
                 0
+
             </strong>
 
         </div>
@@ -802,9 +883,10 @@ tbody tr:last-child td {
             </span>
 
             <strong
-                id="studentsCount"
-            >
+                id="studentsCount">
+
                 0
+
             </strong>
 
         </div>
@@ -818,9 +900,10 @@ tbody tr:last-child td {
             </span>
 
             <strong
-                id="averageScore"
-            >
+                id="averageScore">
+
                 0 %
+
             </strong>
 
         </div>
@@ -832,12 +915,14 @@ tbody tr:last-child td {
 
     <div
         id="tableStatus"
-        class="status"
-    ></div>
+        class="status">
+    </div>
 
 
 
-    <!-- TABLEAU -->
+    <!-- =================================================
+         TABLEAU
+    ================================================= -->
 
     <div class="table-wrap">
 
@@ -846,6 +931,7 @@ tbody tr:last-child td {
 
 
             <thead>
+
 
                 <tr>
 
@@ -863,12 +949,13 @@ tbody tr:last-child td {
 
                 </tr>
 
+
             </thead>
 
 
             <tbody
-                id="scoresBody"
-            ></tbody>
+                id="scoresBody">
+            </tbody>
 
 
         </table>
@@ -908,7 +995,9 @@ import {
     initializeApp
 
 }
+
 from
+
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 
@@ -923,7 +1012,9 @@ import {
     signOut
 
 }
+
 from
+
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
@@ -936,7 +1027,9 @@ import {
     getDocs
 
 }
+
 from
+
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
@@ -977,14 +1070,17 @@ const firebaseConfig = {
 ===================================================== */
 
 const app =
+
     initializeApp(firebaseConfig);
 
 
 const auth =
+
     getAuth(app);
 
 
 const db =
+
     getFirestore(app);
 
 
@@ -994,8 +1090,20 @@ const db =
 ===================================================== */
 
 const $ =
+
     id =>
+
         document.getElementById(id);
+
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let allScores = [];
+
+let currentGame = "alphabet";
 
 
 
@@ -1009,13 +1117,18 @@ function showScreen(id) {
     document
         .querySelectorAll(".screen")
         .forEach(
+
             screen =>
-                screen.classList.remove("active")
+
+                screen.classList
+                    .remove("active")
+
         );
 
 
     $(id)
-        .classList.add("active");
+        .classList
+        .add("active");
 
 }
 
@@ -1027,7 +1140,9 @@ function showScreen(id) {
 
 $("loginForm")
 .addEventListener(
+
     "submit",
+
     async event => {
 
 
@@ -1040,7 +1155,7 @@ $("loginForm")
 
         $("loginStatus")
             .textContent =
-                "Connexion…";
+            "Connexion…";
 
 
         try {
@@ -1062,6 +1177,7 @@ $("loginForm")
 
         }
 
+
         catch(error) {
 
 
@@ -1069,37 +1185,50 @@ $("loginForm")
 
 
             let message =
+
                 "Impossible de se connecter.";
 
 
             if(
+
                 error.code ===
                 "auth/invalid-credential"
+
             ) {
 
+
                 message =
+
                     "Adresse e-mail ou mot de passe incorrect.";
 
             }
 
 
             else if(
+
                 error.code ===
                 "auth/invalid-email"
+
             ) {
 
+
                 message =
+
                     "Adresse e-mail invalide.";
 
             }
 
 
             else if(
+
                 error.code ===
                 "auth/too-many-requests"
+
             ) {
 
+
                 message =
+
                     "Trop de tentatives. Réessaie plus tard.";
 
             }
@@ -1107,7 +1236,7 @@ $("loginForm")
 
             $("loginError")
                 .textContent =
-                    message;
+                message;
 
 
             $("loginStatus")
@@ -1117,6 +1246,7 @@ $("loginForm")
 
 
     }
+
 );
 
 
@@ -1137,7 +1267,7 @@ onAuthStateChanged(
 
             $("connectionBadge")
                 .textContent =
-                    "🟢 Connecté";
+                "🟢 Connecté";
 
 
             showScreen(
@@ -1156,12 +1286,13 @@ onAuthStateChanged(
 
             $("connectionBadge")
                 .textContent =
-                    "🔒 Déconnecté";
+                "🔒 Déconnecté";
 
 
             showScreen(
                 "loginScreen"
             );
+
 
         }
 
@@ -1173,7 +1304,7 @@ onAuthStateChanged(
 
 
 /* =====================================================
-   CHARGER LES SCORES FIRESTORE
+   CHARGER TOUS LES SCORES
 ===================================================== */
 
 async function loadScores() {
@@ -1194,9 +1325,7 @@ async function loadScores() {
             );
 
 
-
-        const scores = [];
-
+        allScores = [];
 
 
         snapshot.forEach(
@@ -1205,64 +1334,43 @@ async function loadScores() {
 
 
                 const data =
+
                     doc.data();
 
 
+                allScores.push({
 
-                /*
-                =========================================
-                IMPORTANT
+                    studentName:
 
-                Ton jeu enregistre exactement :
-
-                game: "Mission : العربي"
-
-                et non :
-
-                game: "Mission : العربية"
-
-                Nous utilisons donc la valeur
-                exacte présente dans Firestore.
-                =========================================
-                */
+                        data.studentName ||
+                        "Inconnu",
 
 
-                if(
+                    correctAnswers:
 
-                    data.game ===
-                    "Mission : العربي"
-
-                ) {
-
-
-                    scores.push({
-
-                        studentName:
-                            data.studentName ||
-                            "Inconnu",
+                        Number(
+                            data.correctAnswers || 0
+                        ),
 
 
-                        correctAnswers:
-                            Number(
-                                data.correctAnswers ||
-                                0
-                            ),
+                    totalQuestions:
+
+                        Number(
+                            data.totalQuestions || 0
+                        ),
 
 
-                        totalQuestions:
-                            Number(
-                                data.totalQuestions ||
-                                0
-                            ),
+                    game:
+
+                        data.game ||
+                        "Inconnu",
 
 
-                        createdAt:
-                            data.createdAt
+                    createdAt:
 
-                    });
+                        data.createdAt
 
-
-                }
+                });
 
 
             }
@@ -1270,41 +1378,39 @@ async function loadScores() {
         );
 
 
-
-        /*
-        =========================================
-        TRI :
-
-        La partie la plus récente
-        apparaît en premier.
-        =========================================
-        */
-
-        scores.sort(
+        allScores.sort(
 
             (a,b) =>
 
                 (
+
                     b.createdAt
                         ?.toMillis?.() ||
+
                     0
+
                 )
 
                 -
 
                 (
+
                     a.createdAt
                         ?.toMillis?.() ||
+
                     0
+
                 )
 
         );
 
 
-
-        displayScores(
-            scores
+        showScreen(
+            "dashboardScreen"
         );
+
+
+        displayCurrentGame();
 
 
     }
@@ -1319,21 +1425,171 @@ async function loadScores() {
         );
 
 
-        $("tableStatus")
-            .textContent =
-                "❌ Impossible de récupérer les scores. Vérifie les règles Firestore.";
-
-
-        $("tableStatus")
-            .style.color =
-                "#8b2f27";
-
-
         showScreen(
             "dashboardScreen"
         );
 
+
+        $("tableStatus")
+            .textContent =
+            "❌ Impossible de récupérer les scores. Vérifie les règles Firestore.";
+
+
+        $("tableStatus")
+            .style.color =
+            "#8b2f27";
+
+
     }
+
+
+}
+
+
+
+/* =====================================================
+   CHANGEMENT D'ONGLET
+===================================================== */
+
+document
+.querySelectorAll(".game-tab")
+.forEach(
+
+    button => {
+
+
+        button.addEventListener(
+
+            "click",
+
+            () => {
+
+
+                currentGame =
+
+                    button.dataset.game;
+
+
+                document
+                .querySelectorAll(".game-tab")
+                .forEach(
+
+                    tab =>
+
+                        tab.classList
+                            .remove("active")
+
+                );
+
+
+                button
+                    .classList
+                    .add("active");
+
+
+                displayCurrentGame();
+
+
+            }
+
+        );
+
+
+    }
+
+);
+
+
+
+/* =====================================================
+   AFFICHER LE JEU SÉLECTIONNÉ
+===================================================== */
+
+function displayCurrentGame() {
+
+
+    let filteredScores = [];
+
+
+    if(
+
+        currentGame === "alphabet"
+
+    ) {
+
+
+        /*
+        Le jeu Alphabet peut avoir
+        différentes anciennes versions
+        du nom enregistré.
+        */
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "Mission : العربي"
+
+                    ||
+
+                    score.game ===
+                    "Mission : العربية"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "🔤 Résultats — Mission : العربي";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu de vocabulaire arabe.";
+
+
+    }
+
+
+    else if(
+
+        currentGame === "couleurs"
+
+    ) {
+
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "Couleurs"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "🎨 Résultats — Les couleurs";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu sur les couleurs en arabe.";
+
+
+    }
+
+
+    displayScores(
+        filteredScores
+    );
+
 
 }
 
@@ -1346,27 +1602,26 @@ async function loadScores() {
 function displayScores(scores) {
 
 
-    showScreen(
-        "dashboardScreen"
-    );
-
-
     const body =
+
         $("scoresBody");
 
 
     body.innerHTML = "";
 
 
+    let totalPercentage = 0;
 
-    /*
-    =========================================
-    AUCUN SCORE
-    =========================================
-    */
+
+    const students =
+
+        new Set();
+
 
     if(
+
         scores.length === 0
+
     ) {
 
 
@@ -1376,8 +1631,7 @@ function displayScores(scores) {
 
                 <td
                     colspan="3"
-                    class="empty"
-                >
+                    class="empty">
 
                     Aucun résultat
                     pour le moment.
@@ -1392,50 +1646,25 @@ function displayScores(scores) {
     }
 
 
-
-    let totalPercentage = 0;
-
-
-    const students =
-        new Set();
-
-
-
-    /*
-    =========================================
-    PARCOURIR LES PARTIES
-    =========================================
-    */
-
     scores.forEach(
 
         result => {
 
 
             students.add(
+
                 result.studentName
+
             );
 
-
-
-            /*
-            =================================
-            CALCUL DU POURCENTAGE
-
-            Exemple :
-
-            1 bonne réponse
-            sur 28 questions
-
-            = 4 %
-            =================================
-            */
 
             let percentage = 0;
 
 
             if(
+
                 result.totalQuestions > 0
+
             ) {
 
 
@@ -1444,62 +1673,48 @@ function displayScores(scores) {
                     Math.round(
 
                         (
+
                             result.correctAnswers
+
                             /
+
                             result.totalQuestions
+
                         )
+
                         *
+
                         100
 
                     );
 
-            }
 
+            }
 
 
             totalPercentage +=
                 percentage;
 
 
-
-            /*
-            =================================
-            PRÉNOM
-            =================================
-            */
-
             const firstName =
+
                 getFirstName(
+
                     result.studentName
+
                 );
 
-
-
-            /*
-            =================================
-            SCORE
-
-            Exemple :
-
-            1 / 28 (4 %)
-            =================================
-            */
 
             const scoreText =
 
                 `${result.correctAnswers} / ${result.totalQuestions} (${percentage} %)`;
 
 
-
-            /*
-            =================================
-            CRÉER LA LIGNE
-            =================================
-            */
-
             const row =
-                document.createElement("tr");
 
+                document.createElement(
+                    "tr"
+                );
 
 
             row.innerHTML = `
@@ -1525,15 +1740,16 @@ function displayScores(scores) {
                 <td>
 
                     ${escapeHtml(
+
                         formatDate(
                             result.createdAt
                         )
+
                     )}
 
                 </td>
 
             `;
-
 
 
             body.appendChild(
@@ -1547,29 +1763,27 @@ function displayScores(scores) {
 
 
 
-    /*
-    =========================================
-    STATISTIQUES
-    =========================================
-    */
+    /* ================================================
+       STATISTIQUES
+    ================================================= */
 
     $("gamesCount")
         .textContent =
-            scores.length;
-
+        scores.length;
 
 
     $("studentsCount")
         .textContent =
-            students.size;
-
+        students.size;
 
 
     let average = 0;
 
 
     if(
+
         scores.length > 0
+
     ) {
 
 
@@ -1578,24 +1792,31 @@ function displayScores(scores) {
             Math.round(
 
                 totalPercentage
+
                 /
+
                 scores.length
 
             );
 
-    }
 
+    }
 
 
     $("averageScore")
         .textContent =
-            `${average} %`;
-
+        `${average} %`;
 
 
     $("tableStatus")
         .textContent =
-            `${scores.length} partie(s) trouvée(s).`;
+        `${scores.length} partie(s) trouvée(s).`;
+
+
+    $("tableStatus")
+        .style.color =
+        "#6d5a4b";
+
 
 }
 
@@ -1609,6 +1830,7 @@ function getFirstName(name) {
 
 
     const clean =
+
         String(
             name || ""
         )
@@ -1617,13 +1839,16 @@ function getFirstName(name) {
 
     if(!clean) {
 
+
         return "Inconnu";
+
 
     }
 
 
     return clean
         .split(/\s+/)[0];
+
 
 }
 
@@ -1638,7 +1863,9 @@ function formatDate(timestamp) {
 
     if(
 
-        !timestamp ||
+        !timestamp
+
+        ||
 
         typeof timestamp.toDate !==
         "function"
@@ -1648,13 +1875,13 @@ function formatDate(timestamp) {
 
         return "Date inconnue";
 
+
     }
 
 
-
     const date =
-        timestamp.toDate();
 
+        timestamp.toDate();
 
 
     return new Intl.DateTimeFormat(
@@ -1682,6 +1909,7 @@ function formatDate(timestamp) {
 
     )
     .format(date);
+
 
 }
 
@@ -1721,6 +1949,7 @@ function escapeHtml(value) {
             "&#039;"
         );
 
+
 }
 
 
@@ -1736,11 +1965,14 @@ $("logoutBtn")
 
     async () => {
 
+
         await signOut(auth);
+
 
     }
 
 );
+
 
 </script>
 
