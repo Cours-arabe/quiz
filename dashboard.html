@@ -857,6 +857,14 @@ tbody tr:last-child td {
         </button>
 
        
+       <button
+            class="game-tab"
+            data-game="pronoms déconnectés">
+
+            🧑‍🏫 Les pronoms déconnectés
+
+        </button>
+       
     </div>
 
 
@@ -1584,7 +1592,7 @@ function displayCurrentGame() {
 
         $("dashboardTitle")
             .textContent =
-            "🎨 Résultats — Les couleurs";
+            "👨‍🏫 Résultats — Les couleurs";
 
 
         $("dashboardDescription")
@@ -1615,7 +1623,7 @@ function displayCurrentGame() {
 
         $("dashboardTitle")
             .textContent =
-            "🎨 Résultats — Les pronoms";
+            "👨‍🏫 Résultats — Les pronoms";
 
 
         $("dashboardDescription")
@@ -1624,6 +1632,38 @@ function displayCurrentGame() {
 
 
     }
+
+   else if(
+
+        currentGame === "Pronoms déconnectés"
+
+    ) {
+
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "Pronoms déconnectés"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "🎨 Résultats — Pronoms déconnectés";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu sur les pronoms déconnectés en arabe.";
+
+
+    }
+   
     displayScores(
         filteredScores
     );
