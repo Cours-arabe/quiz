@@ -455,6 +455,30 @@ input:focus {
   border-color: #d86b60;
 }
 
+/* =========================================
+   RÉPONSES : VERSION MOBILE
+========================================= */
+
+@media (max-width: 560px) {
+
+  .answers {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .answer {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* La 3e réponse seule : centrée */
+  .answer:nth-child(3):last-child {
+    grid-column: 1 / 3;
+    width: calc(50% - 6px);
+    justify-self: center;
+  }
+
+}
 
 /* =========================================================
    FEEDBACK
@@ -1687,31 +1711,6 @@ async function saveScore() {
     status.style.color =
     "#8b2f27";
 
-  }
-
-}
-
-   /* =========================================
-   RÉPONSES : VERSION MOBILE
-========================================= */
-
-@media (max-width: 560px) {
-
-  .answers {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .answer {
-    width: 100%;
-    min-width: 0;
-  }
-
-  /* La 3e réponse seule : centrée */
-  .answer:nth-child(3):last-child {
-    grid-column: 1 / 3;
-    width: calc(50% - 6px);
-    justify-self: center;
   }
 
 }
