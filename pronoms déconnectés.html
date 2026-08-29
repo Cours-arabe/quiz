@@ -1138,7 +1138,7 @@ async function loadQuestions() {
     await getDocs(
       collection(
         db,
-        "pronoms"
+        "Pronoms_déconnectés"
       )
     );
 
@@ -1696,7 +1696,7 @@ async function saveScore() {
         questions.length,
 
         game:
-        "Pronoms",
+        "Pronoms déconnectés",
 
         playerUid:
         firebaseUser.uid,
