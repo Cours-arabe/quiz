@@ -1594,7 +1594,36 @@ function displayCurrentGame() {
 
     }
 
+    else if(
 
+        currentGame === "pronoms"
+
+    ) {
+
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "Pronoms"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "🎨 Résultats — Les pronoms";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu sur les pronoms en arabe.";
+
+
+    }
     displayScores(
         filteredScores
     );
