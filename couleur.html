@@ -1080,7 +1080,7 @@ async function loadQuestions() {
     await getDocs(
       collection(
         db,
-        "questions_couleurs"
+        "pronoms"
       )
     );
 
@@ -1644,7 +1644,7 @@ async function saveScore() {
         questions.length,
 
         game:
-        "Couleurs",
+        "Pronoms",
 
         playerUid:
         firebaseUser.uid,
