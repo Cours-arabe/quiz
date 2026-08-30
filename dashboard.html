@@ -861,7 +861,15 @@ tbody tr:last-child td {
             class="game-tab"
             data-game="Pronomsdeconnectes">
 
-            🧑‍🏫 Les pronoms déconnectés
+            🧑‍🏫 Les pronoms d
+
+        </button>
+
+        <button
+            class="game-tab"
+            data-game="les_signes">
+
+            🧑‍🏫 Les signes
 
         </button>
        
@@ -1660,6 +1668,37 @@ function displayCurrentGame() {
         $("dashboardDescription")
             .textContent =
             "Résultats du jeu sur les pronoms déconnectés en arabe.";
+
+
+    }
+
+   else if(
+
+        currentGame === "les_signes"
+
+    ) {
+
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "les_signes"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "👨‍🏫 Résultats — Les signes";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu sur les signes d'Allah en arabe.";
 
 
     }
