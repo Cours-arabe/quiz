@@ -872,7 +872,14 @@ tbody tr:last-child td {
             🧑‍🏫 Les signes
 
         </button>
-       
+
+     <button
+            class="game-tab"
+            data-game="prepositions">
+
+            🧑‍🏫 Les prépositions
+
+        </button>  
     </div>
 
 
@@ -1662,7 +1669,7 @@ function displayCurrentGame() {
 
         $("dashboardTitle")
             .textContent =
-            "🎨 Résultats — Pronoms déconnectés";
+            "🧑‍🏫 Résultats — Pronoms déconnectés";
 
 
         $("dashboardDescription")
@@ -1702,7 +1709,37 @@ function displayCurrentGame() {
 
 
     }
-   
+
+   else if(
+
+        currentGame === "prepositions"
+
+    ) {
+
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "prepositions"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "🧑‍🏫 Résultats — Les prépositions";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu sur les prépostions en arabe en arabe.";
+
+
+    }
     displayScores(
         filteredScores
     );
