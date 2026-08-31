@@ -841,9 +841,9 @@ tbody tr:last-child td {
 
         <button
             class="game-tab"
-            data-game="couleurs">
+            data-game="Famille">
 
-            🎨 Les couleurs
+            🧑‍🏫 La famille
 
         </button>
 
@@ -1588,7 +1588,7 @@ function displayCurrentGame() {
 
     else if(
 
-        currentGame === "couleurs"
+        currentGame === "Famille"
 
     ) {
 
@@ -1600,19 +1600,19 @@ function displayCurrentGame() {
                 score =>
 
                     score.game ===
-                    "Couleurs"
+                    "Famille"
 
             );
 
 
         $("dashboardTitle")
             .textContent =
-            "👨‍🏫 Résultats — Les couleurs";
+            "👨‍🏫 Résultats — La famille";
 
 
         $("dashboardDescription")
             .textContent =
-            "Résultats du jeu sur les couleurs en arabe.";
+            "Résultats du jeu sur la famille en arabe.";
 
 
     }
