@@ -888,6 +888,14 @@ tbody tr:last-child td {
              Les compléments L
 
         </button>  
+       
+       <button
+            class="game-tab"
+            data-game="noms_d'Allah">
+
+             Les noms d'Allah
+
+        </button>  
     </div>
 
 
@@ -1749,6 +1757,36 @@ function displayCurrentGame() {
 
     }
 
+        else if(
+
+        currentGame === "noms_d'Allah"
+
+    ) {
+
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "noms_d'Allah"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "👨‍🏫 Résultats — Les Noms d'Allah";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu sur les noms d'Allah en arabe.";
+
+
+    }
    else if(
 
         currentGame === "Pronomsdeconnectes"
