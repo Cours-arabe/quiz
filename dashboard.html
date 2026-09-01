@@ -880,6 +880,14 @@ tbody tr:last-child td {
              Les prépositions
 
         </button>  
+
+       <button
+            class="game-tab"
+            data-game="com_lieux">
+
+             Les Compléments de lieu
+
+        </button>  
     </div>
 
 
@@ -1712,7 +1720,7 @@ function displayCurrentGame() {
 
    else if(
 
-        currentGame === "prepositions"
+        currentGame === "com_lieux"
 
     ) {
 
@@ -1724,22 +1732,54 @@ function displayCurrentGame() {
                 score =>
 
                     score.game ===
-                    "prepositions"
+                    "com_lieux"
 
             );
 
 
         $("dashboardTitle")
             .textContent =
-            "🧑‍🏫 Résultats — Les prépositions";
+            "🧑‍🏫 Résultats — Les compléments de lieu";
 
 
         $("dashboardDescription")
             .textContent =
-            "Résultats du jeu sur les prépostions en arabe en arabe.";
+            "Résultats du jeu sur les complément de lieu en arabe en arabe.";
 
 
     }
+
+   else if(
+
+        currentGame === "Pronomsdeconnectes"
+
+    ) {
+
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "Pronoms déconnectés"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "🧑‍🏫 Résultats — Pronoms déconnectés";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu sur les pronoms déconnectés en arabe.";
+
+
+    }
+
     displayScores(
         filteredScores
     );
