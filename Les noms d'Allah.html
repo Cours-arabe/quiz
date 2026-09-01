@@ -7,7 +7,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<title>Quiz : Les pronoms déconnectés</title>
+<title>Quiz : Les noms d'Allah</title>
 
 <style>
 
@@ -663,11 +663,11 @@ input:focus {
 <header>
 
 <h1>
-🧑‍🏫 Quiz : Les pronoms déconnectés
+🧑‍🏫 Quiz : Les noms d'Allah
 </h1>
 
 <p>
-Page 24
+Page 34
 </p>
 
 </header>
@@ -685,7 +685,7 @@ class="screen active">
 <div class="center">
 
 <div class="arabic-title">
-الضَّمَائِرُ المُنْفَصِلَة
+أَسْمَاءُ اللَّهِ
 </div>
 
 <h2 class="welcome-title">
@@ -1138,7 +1138,7 @@ async function loadQuestions() {
     await getDocs(
       collection(
         db,
-        "pronoms_deconnectes"
+        "noms_d'Allah"
       )
     );
 
@@ -1696,7 +1696,7 @@ async function saveScore() {
         questions.length,
 
         game:
-        "Pronomsdeconnectes",
+        "noms_d'Allah",
 
         playerUid:
         firebaseUser.uid,
