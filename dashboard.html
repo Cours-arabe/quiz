@@ -896,6 +896,14 @@ tbody tr:last-child td {
              Les noms d'Allah
 
         </button>  
+       
+       <button
+            class="game-tab"
+            data-game="adjectifs">
+
+             Les adjectifs 1
+
+        </button>  
     </div>
 
 
@@ -1814,6 +1822,37 @@ function displayCurrentGame() {
         $("dashboardDescription")
             .textContent =
             "Résultats du jeu sur les pronoms déconnectés en arabe.";
+
+
+    }
+
+       else if(
+
+        currentGame === "adjectifs1"
+
+    ) {
+
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "adjectifs"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "👨‍🏫 Résultats — Les adjectifs 1/2";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu sur les adjectifs en arabe.";
 
 
     }
