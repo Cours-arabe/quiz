@@ -7,7 +7,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<title>Quiz : Les adjectifs 1</title>
+<title>Quiz : Les adjectifs 2</title>
 
 <style>
 
@@ -663,11 +663,11 @@ input:focus {
 <header>
 
 <h1>
-🧑‍🏫 Quiz : Les adjectifs 1/2
+🧑‍🏫 Quiz : Les adjectifs 2/2
 </h1>
 
 <p>
-Page 24
+Page 36
 </p>
 
 </header>
@@ -685,7 +685,7 @@ class="screen active">
 <div class="center">
 
 <div class="arabic-title">
-الصِّفَات 1
+الصِّفَات 2
 </div>
 
 <h2 class="welcome-title">
@@ -1138,7 +1138,7 @@ async function loadQuestions() {
     await getDocs(
       collection(
         db,
-        "adjectifs1"
+        "adjectifs2"
       )
     );
 
@@ -1696,7 +1696,7 @@ async function saveScore() {
         questions.length,
 
         game:
-        "adjectifs1",
+        "adjectifs2",
 
         playerUid:
         firebaseUser.uid,
