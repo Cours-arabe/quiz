@@ -904,6 +904,14 @@ tbody tr:last-child td {
              Les adjectifs 1
 
         </button>  
+
+       <button
+            class="game-tab"
+            data-game="adjectifs2">
+
+             Les adjectifs 2
+
+        </button>  
     </div>
 
 
@@ -1852,6 +1860,37 @@ function displayCurrentGame() {
         $("dashboardDescription")
             .textContent =
             "Résultats du jeu sur les adjectifs en arabe.";
+
+
+    }
+
+   else if(
+
+        currentGame === "adjectifs2"
+
+    ) {
+
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "adjectifs2"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "👨‍🏫 Résultats — Les adjectifs 2/2";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu sur les adjectifs 2/2 en arabe.";
 
 
     }
