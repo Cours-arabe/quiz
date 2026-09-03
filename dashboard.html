@@ -912,6 +912,14 @@ tbody tr:last-child td {
              Les adjectifs 2
 
         </button>  
+       
+       <button
+            class="game-tab"
+            data-game="superlatif">
+
+             Les superlatifs
+
+        </button>  
     </div>
 
 
@@ -1891,6 +1899,37 @@ function displayCurrentGame() {
         $("dashboardDescription")
             .textContent =
             "Résultats du jeu sur les adjectifs 2/2 en arabe.";
+
+
+    }
+      
+   else if(
+
+        currentGame === "superlatif"
+
+    ) {
+
+
+        filteredScores =
+
+            allScores.filter(
+
+                score =>
+
+                    score.game ===
+                    "superlatif"
+
+            );
+
+
+        $("dashboardTitle")
+            .textContent =
+            "👨‍🏫 Résultats — Les superlatifs";
+
+
+        $("dashboardDescription")
+            .textContent =
+            "Résultats du jeu sur les superlatifs en arabe.";
 
 
     }
