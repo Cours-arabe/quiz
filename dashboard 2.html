@@ -832,9 +832,9 @@ tbody tr:last-child td {
 
         <button
             class="game-tab active"
-            data-game="alphabet">
+            data-game="verbes1">
 
-             L'alphabet
+             Les verbes 1/10
 
         </button>
 
@@ -1628,7 +1628,7 @@ function displayCurrentGame() {
 
     else if(
 
-        currentGame === "Famille"
+        currentGame === "verbes1"
 
     ) {
 
@@ -1640,19 +1640,19 @@ function displayCurrentGame() {
                 score =>
 
                     score.game ===
-                    "Famille"
+                    "verbes1"
 
             );
 
 
         $("dashboardTitle")
             .textContent =
-            "👨‍🏫 Résultats — La famille";
+            "👨‍🏫 Résultats — Les verbes 1/10";
 
 
         $("dashboardDescription")
             .textContent =
-            "Résultats du jeu sur la famille en arabe.";
+            "Résultats du jeu sur les verbes 1/10 en arabe.";
 
 
     }
