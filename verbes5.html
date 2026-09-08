@@ -7,7 +7,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<title>Quiz : Les verbes 2</title>
+<title>Quiz : Les verbes 5</title>
 
 <style>
 
@@ -663,11 +663,11 @@ input:focus {
 <header>
 
 <h1>
-🧑‍🏫 Quiz : Les verbes 2/10
+🧑‍🏫 Quiz : Les verbes 5/10
 </h1>
 
 <p>
-Page 2
+Page 5
 </p>
 
 </header>
@@ -1138,7 +1138,7 @@ async function loadQuestions() {
     await getDocs(
       collection(
         db,
-        "verbes2"
+        "verbes5"
       )
     );
 
@@ -1696,7 +1696,7 @@ async function saveScore() {
         questions.length,
 
         game:
-        "verbes2",
+        "verbes5",
 
         playerUid:
         firebaseUser.uid,
