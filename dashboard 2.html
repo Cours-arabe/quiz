@@ -891,35 +891,28 @@ tbody tr:last-child td {
        
        <button
             class="game-tab"
-            data-game="noms_d'Allah">
+            data-game="verbes8">
 
-             Les noms d'Allah
-
-        </button>  
-       
-       <button
-            class="game-tab"
-            data-game="adjectifs1">
-
-             Les adjectifs 1
-
-        </button>  
-
-       <button
-            class="game-tab"
-            data-game="adjectifs2">
-
-             Les adjectifs 2
+             Les verbes 8/10
 
         </button>  
        
        <button
             class="game-tab"
-            data-game="superlatif">
+            data-game="verbes9">
 
-             Les superlatifs
+             Les verbes 9/10
 
         </button>  
+
+       <button
+            class="game-tab"
+            data-game="verbes10">
+
+             Les verbes 10/10
+
+        </button>  
+       
     </div>
 
 
@@ -1843,7 +1836,7 @@ function displayCurrentGame() {
     }
    else if(
 
-        currentGame === "adjectifs1"
+        currentGame === "verbes8"
 
     ) {
 
@@ -1855,26 +1848,26 @@ function displayCurrentGame() {
                 score =>
 
                     score.game ===
-                    "adjectifs1"
+                    "verbes8"
 
             );
 
 
         $("dashboardTitle")
             .textContent =
-            "👨‍🏫 Résultats — Les adjectifs 1/2";
+            "👨‍🏫 Résultats — Les verbes 8";
 
 
         $("dashboardDescription")
             .textContent =
-            "Résultats du jeu sur les adjectifs en arabe.";
+            "Résultats du jeu sur les averbes 8 en arabe.";
 
 
     }
 
    else if(
 
-        currentGame === "adjectifs2"
+        currentGame === "verbes9"
 
     ) {
 
@@ -1886,26 +1879,26 @@ function displayCurrentGame() {
                 score =>
 
                     score.game ===
-                    "adjectifs2"
+                    "verbes9"
 
             );
 
 
         $("dashboardTitle")
             .textContent =
-            "👨‍🏫 Résultats — Les adjectifs 2/2";
+            "👨‍🏫 Résultats — Les verbes 9";
 
 
         $("dashboardDescription")
             .textContent =
-            "Résultats du jeu sur les adjectifs 2/2 en arabe.";
+            "Résultats du jeu sur les verbes 9 en arabe.";
 
 
     }
       
    else if(
 
-        currentGame === "superlatif"
+        currentGame === "verbes10"
 
     ) {
 
@@ -1917,19 +1910,19 @@ function displayCurrentGame() {
                 score =>
 
                     score.game ===
-                    "superlatif"
+                    "verbes10"
 
             );
 
 
         $("dashboardTitle")
             .textContent =
-            "👨‍🏫 Résultats — Les superlatifs";
+            "👨‍🏫 Résultats — Les verbes 10";
 
 
         $("dashboardDescription")
             .textContent =
-            "Résultats du jeu sur les superlatifs en arabe.";
+            "Résultats du jeu sur les verbes 10 en arabe.";
 
 
     }
